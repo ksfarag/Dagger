@@ -14,18 +14,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &114508651762078008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5366518941425524030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3bf3b147845c94418bd26901e964c28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114346043213348096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36,6 +24,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dca4e9d56cff739449ea94fffb557d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 5
+--- !u!114 &114508651762078008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5366518941425524030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3bf3b147845c94418bd26901e964c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &6437242715655145128
@@ -110,7 +111,7 @@ PrefabInstance:
     - target: {fileID: 114305672972391410, guid: 397a24ecc25ffcb428650cf337aefd99,
         type: 3}
       propertyPath: healthPoints
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1205638199760308903, guid: 397a24ecc25ffcb428650cf337aefd99,
         type: 3}
@@ -166,6 +167,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205638199760308924, guid: 397a24ecc25ffcb428650cf337aefd99,
+        type: 3}
+      propertyPath: m_Speed
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1205638199760308926, guid: 397a24ecc25ffcb428650cf337aefd99,
         type: 3}

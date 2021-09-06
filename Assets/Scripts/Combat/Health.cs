@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace RPG.Combat
 {
@@ -28,6 +29,8 @@ namespace RPG.Combat
         {
             GetComponent<Animator>().SetTrigger("die");
             isDead = true;
+            GetComponent<NavMeshAgent>().enabled = false; //stops the character from moving after it dies
+            GetComponent<Fighter>().enabled = false; //stops the character attack/movement behaviour after it dies
         }
     }
 

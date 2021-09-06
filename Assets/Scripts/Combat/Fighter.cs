@@ -11,7 +11,7 @@ namespace RPG.Combat
         [SerializeField] float weaponDamage = 5f;
 
         Health target;
-        float timeSinceLastAttack = 0;
+        float timeSinceLastAttack = Mathf.Infinity; //setting it to infinity makes AttackBehaviour() start the first attack faster
         private void Update()
         {
             timeSinceLastAttack += Time.deltaTime;
@@ -29,11 +29,11 @@ namespace RPG.Combat
             else //else if in range of target, cancel mover then attack
             {
                 GetComponent<Mover>().Cancel();
-                AttaclBehaviour();
+                AttackBehaviour();
             }
         }
 
-        private void AttaclBehaviour()
+        private void AttackBehaviour()
         {
             transform.LookAt(target.transform);
             if (timeSinceLastAttack > timeBetweenAttacks)
@@ -57,13 +57,15 @@ namespace RPG.Combat
             // Vector3.Distance gets the distance between transform.pos (player pos) and the target pos
             return Vector3.Distance(transform.position, target.transform.position) < weaponRange;
         }
-        public bool CanAttack(CombatTarget combatTarget)
+
+        // check if player/enemies can attack (if target != null && target is alive)
+        public bool CanAttack(GameObject combatTarget)
         {
             if (combatTarget == null) { return false; }
             Health targetToTest = combatTarget.GetComponent<Health>();
             return targetToTest != null && !targetToTest.IsDead();
         }
-        public void Attack(CombatTarget combatTarget)
+        public void Attack(GameObject combatTarget)
         {
             GetComponent<ActionScheduler>().startAction(this);
             target = combatTarget.GetComponent<Health>();
